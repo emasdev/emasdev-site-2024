@@ -6,7 +6,8 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 export default function Calendar() {
 
   const events = [
-    { title: 'Respiración y Meditación', start: "2023-06-01" }
+    { title: 'Respiración y Meditación', start: "2023-06-15" },
+    { title: 'Respiración y Meditación', start: "2023-06-22" }
   ]
 
   // a custom render function

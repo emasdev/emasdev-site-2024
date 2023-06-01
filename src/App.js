@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { firebaseConfig } from "./firebaseConfig";
+import { AuthProvider } from "./contexts/AuthContext";
 
 function App() {
 
@@ -10,7 +11,10 @@ function App() {
   const analytics = getAnalytics(app);
 
   return (
-    <Home></Home>
+    <AuthProvider>
+      <Home></Home>
+    </AuthProvider>
+
 
   );
 }

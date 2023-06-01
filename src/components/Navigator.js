@@ -1,19 +1,29 @@
 import React, { useEffect, useState } from 'react'
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signOut,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider
+} from "firebase/auth";
+import useAuth from '../contexts/AuthContext';
+import Breathwork from './modals/Breathwork';
 
 
 export default function Navigator() {
 
   const auth = getAuth()
-  const [user, setUser] = useState()
+  const { user } = useAuth()
+  // const [user, setUser] = useState()
 
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      setUser(user)
-    } else {
-      setUser(null)
-    }
-  });
+  // onAuthStateChanged(auth, (user) => {
+  //   if (user) {
+  //     setUser(user)
+  //   } else {
+  //     setUser(null)
+  //   }
+  // });
   const [registerError, setRegisterError] = useState()
   const [registerFirebaseError, setRegisterFirebaseError] = useState()
   const [loginError, setLoginError] = useState()
@@ -61,9 +71,7 @@ export default function Navigator() {
     if (email && password) {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          // Signed in
           const user = userCredential.user;
-          // ...
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -78,24 +86,55 @@ export default function Navigator() {
 
   }
 
+  const signWithGoogle = () => {
 
+    const provider = new GoogleAuthProvider();
+
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+      }).catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+      });
+  }
 
   return (
     <>
       {user &&
         <div>
-          <p>Estás conectado como {user.email}</p>
-          <button
-            type="button"
-            class="btn btn-light"
-            onClick={e => logOut(e)}
-          >Cerrar sesión</button>
+          <p className='fs-3'>Estás conectado como:</p>
+          <p className='fw-semibold'>{user.email}</p>
+          <p>¿Qué puedes hacer ahora?</p>
+          <div className='d-flex flex-column'>
+            <Breathwork />
+            <button
+              type="button"
+              className="btn btn-light mt-4 w-50 align-self-end"
+              onClick={e => logOut(e)}
+            >Cerrar sesión</button>
+          </div>
         </div>
       }
       {!user &&
         <div>
           <p className='text-center'>Aún no inicias sesión.</p>
           <p className='text-end'>¿Qué deseas?</p>
+          <div className='mb-2'>
+            <button type="button" className="btn btn-light" onClick={signWithGoogle}>Acceder con Google</button>
+          </div>
           <div className="accordion accordion-flush" id="accordionFlushExample">
             <div className="accordion-item">
               <h2 className="accordion-header">
@@ -110,15 +149,15 @@ export default function Navigator() {
                     <p className='fs-5'>Usando tu cuenta de este portal.</p>
                   </div>
                   <form>
-                    {registerError &&
+                    {loginError &&
                       <div className="alert alert-warning" role="alert">
-                        <strong>¡Veamos!</strong> {registerError}
+                        <strong>¡Veamos!</strong> {loginError}
                       </div>
                     }
 
-                    {registerFirebaseError &&
-                      <div className="alert alert-error" role="alert">
-                        <strong>¡Error!</strong> {registerFirebaseError}
+                    {loginFirebaseError &&
+                      <div className="alert alert-warning" role="alert">
+                        <strong>¡Error!</strong> {loginFirebaseError}
                       </div>
                     }
                     <div className="mb-3">
@@ -160,7 +199,7 @@ export default function Navigator() {
                     }
 
                     {registerFirebaseError &&
-                      <div className="alert alert-error" role="alert">
+                      <div className="alert alert-warning" role="alert">
                         <strong>¡Error!</strong> {registerFirebaseError}
                       </div>
                     }
@@ -180,7 +219,6 @@ export default function Navigator() {
                     <div className='text-end mt-4'>
                       <button type="submit" className="btn btn-light" onClick={(e) => register(e)}>Crear cuenta</button>
                     </div>
-
                   </form>
                 </div>
               </div>

@@ -39,7 +39,7 @@ function Home() {
 
             </ul>
           </div>
-          <p>Este jueves, como cada jueves se procura, habrá práctica de respiración y meditación presencial. Es una práctica en la que combinamos técnicas de respiración y meditación, no tengo muchas palabras para describirla. Ven y práctica.</p>
+          <p>Este jueves, como cada jueves se procura, habrá práctica de respiración y meditación presencial. Es una practica en la que combinamos técnicas de respiración y meditación, no tengo muchas palabras para describirla. Ven y práctica.</p>
           <p>Este sitio web que está creciendo poco a poco</p>
           <p>Con herramientas gratuitas, o tal vez no</p>
 
@@ -54,7 +54,7 @@ function Home() {
           <div className="card w-50 justify" >
             <div className="card-body">
               <h5 className="card-title">Contacto</h5>
-              <p className="card-text">Si te interesa asistir contactame por instagram (por ahora), para anotarte en mi excel y pasarte la dirección del centro donde se hacen las prácticas.</p>
+              <p className="card-text">Si te interesa asistir contactame por instagram (por ahora), para anotarte en mi excel y pasarte la dirección del centro donde se hacen las practicas.</p>
               <a href="https://www.instagram.com/el.emas/" target="_blank" className="btn btn-primary">Ir a página de contacto</a>
             </div>
           </div>
