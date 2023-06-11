@@ -9,6 +9,8 @@ import {
 } from "firebase/auth";
 import useAuth from '../contexts/AuthContext';
 import Breathwork from './modals/Breathwork';
+import MeditarEnHielo from './modals/MeditarEnHielo';
+import Menu from './Menu';
 
 
 export default function Navigator() {
@@ -112,14 +114,19 @@ export default function Navigator() {
   }
 
   return (
-    <>
+    <div style={{
+      backgroundColor: "#f1f1f1",
+      color: "#444444",
+      borderRadius: "15px",
+      padding: "30px"
+    }}>
       {user &&
         <div>
           <p className='fs-3'>Estás conectado como:</p>
           <p className='fw-semibold'>{user.email}</p>
           <p>¿Qué puedes hacer ahora?</p>
           <div className='d-flex flex-column'>
-            <Breathwork />
+            <Menu />
             <button
               type="button"
               className="btn btn-light mt-4 w-50 align-self-end"
@@ -227,7 +234,7 @@ export default function Navigator() {
         </div>
       }
 
-    </>
+    </div>
 
   )
 }

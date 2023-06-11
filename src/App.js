@@ -4,6 +4,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { firebaseConfig } from "./firebaseConfig";
 import { AuthProvider } from "./contexts/AuthContext";
+import './App.css';
 
 function App() {
 
@@ -11,9 +12,12 @@ function App() {
   const analytics = getAnalytics(app);
 
   return (
-    <AuthProvider>
-      <Home></Home>
-    </AuthProvider>
+    <div className="App">
+      <AuthProvider>
+        <Home></Home>
+      </AuthProvider>
+    </div>
+
 
 
   );

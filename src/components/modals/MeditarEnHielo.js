@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 
-export default function Breathwork({
+export default function MeditarEnHielo({
   title
 }) {
 
   const [showVideo, setShowVideo] = useState(false)
-  const tummoModal = document.getElementById('tummoModal')
+  const meditarEnHieloModal = document.getElementById('meditarEnHieloModal')
 
-  if (tummoModal) {
-    tummoModal.addEventListener('show.bs.modal', event => {
+  if (meditarEnHieloModal) {
+    meditarEnHieloModal.addEventListener('show.bs.modal', event => {
       setShowVideo(false)
       // Button that triggered the modal
       // const button = event.relatedTarget
@@ -18,8 +18,8 @@ export default function Breathwork({
       // // and then do the updating in a callback.
 
       // // Update the modal's content.
-      // const modalTitle = tummoModal.querySelector('.modal-title')
-      // const modalBodyInput = tummoModal.querySelector('.modal-body input')
+      // const modalTitle = meditarEnHieloModal.querySelector('.modal-title')
+      // const modalBodyInput = meditarEnHieloModal.querySelector('.modal-body input')
 
       // modalTitle.textContent = `New message to ${recipient}`
       // modalBodyInput.value = recipient
@@ -35,17 +35,17 @@ export default function Breathwork({
       <button
         type="button"
         className="btn btn-primary w-100 p-3"
-        data-bs-toggle="modal" data-bs-target="#tummoModal"
+        data-bs-toggle="modal" data-bs-target="#meditarEnHieloModal"
       >
         {title}
       </button>
 
 
-      <div className="modal fade" id="tummoModal" tabndex="-1" aria-labelledby="tummoModalLabel" aria-hidden="true">
+      <div className="modal fade" id="meditarEnHieloModal" tabndex="-1" aria-labelledby="meditarEnHieloModalLabel" aria-hidden="true">
         <div className="modal-dialog modal-fullscreen">
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id="tummoModalLabel">¡Prepara tu espacio!</h1>
+              <h1 className="modal-title fs-5" id="meditarEnHieloModalLabel">¡Prepara tu espacio!</h1>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
