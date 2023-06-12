@@ -111,11 +111,11 @@ export default function MeditarEnHielo({
               }
 
               {section === 2 && <>
-                <div className="alert alert-warning" role="alert">
-                  ¡No lo hagas si no has practicado antes con algún experto y/o no conoces bien las contraindicaciones!
+                <div className="alert alert-warning text-center" role="alert">
+                  <strong>¡No lo hagas si no has practicado antes con algún experto y/o no conoces bien las contraindicaciones!</strong>
                 </div>
                 <p>
-                  La mente es una herramienta poderosa, demasiado. Veo la frecuencia con la que se generan enfermedades psicosomáticas al rededor del estrés, ansiedad, depresión y paranoia: generadas por un sistema imperfecto y en algunos casos: tóxico y podrido, que tiene que cambiar porque si no ni vamos a sobrevivir, en fin. Ya no se anda descalzo en la tierra, hay dejar que nos pegue el viento sin ponernos la chaquetota y mojarnos en los lagos. ¿Porqué privar a nuestro cuerpo de su capacidad de hacerse más fuerte y resistente? adaptarse al ambiente natural dentro de sus posibilidades y hackearlo con estas técnicas para aumentar nuestras posibilidades también.                </p>
+                  La mente es una herramienta poderosa, demasiado. Veo la frecuencia con la que se generan enfermedades psicosomáticas al rededor del estrés, ansiedad, depresión y paranoia: generadas por un sistema imperfecto y en algunos casos: tóxico y insostenible, que tiene que cambiar porque si no ni vamos a sobrevivir, en fin. Ya no se anda descalzo en la tierra, hay dejar que nos pegue el viento sin ponernos la chaquetota y mojarnos en los lagos. ¿Porqué privar a nuestro cuerpo de su capacidad de hacerse más fuerte y resistente? adaptarse al ambiente natural dentro de sus posibilidades y hackearlo con estas técnicas para aumentar nuestras posibilidades también.                </p>
                 <p>
                   Los primeros segundos es un shock instantáneo para el cuerpo: la vasoconstricción sucede, mata bacterias, se pone el sistema alerta, protegiendo órganos internos. En la mente la práctica es el acostumbrarse al momento presente, a la presencia y el sentir, aceptar la incomodidad, la meditación, estar ahí sin agitarse tanto, aceptando y agradeciendo que esta práctica nos beneficia a nosotros y a otros seres.
                 </p>

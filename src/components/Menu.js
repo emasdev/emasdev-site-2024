@@ -14,7 +14,7 @@ export default function Menu() {
       </div>
       <div>
         <MeditarEnHielo
-          title={"Ver mi primera inmersión en hielo"}
+          title={"Ver mi primera inmersión en hielo en casa"}
         />
       </div>
     </div>

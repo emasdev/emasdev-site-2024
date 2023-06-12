@@ -80,9 +80,11 @@ export default function Breathwork({
                 <>
                   <p>¿Cómo hacer el método?</p>
                   <ul className="list-group">
-                    <li className="list-group-item">Encuentra una posición cómoda estando sentado/a u acostada/o</li>
-                    <li className="list-group-item">Inhala rápido y profundo por la nariz, y exhala por la boca 30 veces</li>
-                    <li className="list-group-item">Respira profundamente, exhala y mantén en la parte inferior de la exhalación todo el tiempo que puedas. </li>
+                    <li className="list-group-item">Encuentra una posición cómoda sentado o acostado</li>
+                    <li className="list-group-item">Inhala por la nariz y exhala por la boca (30 repeticiones)</li>
+                    <li className="list-group-item">En la última inspiración profunda (ya sea la 30 o 40, la que elijas), soltar el aire levemente (no vacíes tus pulmones).</li>
+                    <li className="list-group-item">Mantener la respiración el tiempo que puedas (entre 1 minuto y 1 minuto y medio es suficiente).</li>
+                    <li className="list-group-item">Cuando sientas la necesidad de respirar, hacer una inhalación profunda, sostenerla 10 a 15 segundos, y luego exhalar para repetir el proceso. </li>
                     <li className="list-group-item">Inhala tan profundamente como puedas y mantén la inhalación durante 15 segundos, después exhala. </li>
                     <li className="list-group-item">Aquí terminaste una ronda, repite tantas veces como quieras. (se prudente)</li>
                   </ul>
