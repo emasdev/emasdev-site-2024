@@ -1,8 +1,23 @@
+import { useEffect, useState } from 'react';
 import '../App.css';
 import Calendar from '../components/Calendar';
 import Navigator from '../components/Navigator';
+import useDataContext from '../contexts/DataContext';
+import useAuth from '../contexts/AuthContext';
 
 function Home() {
+
+  const { user } = useAuth()
+  const { userData, getUserData } = useDataContext()
+
+
+  useEffect(() => {
+    if (!user) return
+
+    if (!userData) {
+      getUserData()
+    }
+  }, [user, userData])
 
 
   return (

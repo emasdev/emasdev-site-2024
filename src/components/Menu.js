@@ -6,7 +6,7 @@ export default function Menu() {
 
 
   return (
-    <div className='d-grid gap-3 p-4'>
+    <div className='d-grid gap-3'>
       <div>
         <Breathwork
           title={"Practicar respiración Tummo / Wim Hof"}

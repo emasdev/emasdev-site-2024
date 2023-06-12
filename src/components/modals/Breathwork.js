@@ -34,7 +34,7 @@ export default function Breathwork({
 
       <button
         type="button"
-        className="btn btn-primary w-100 p-3"
+        className="btn btn-outline-primary w-100 p-3"
         data-bs-toggle="modal" data-bs-target="#tummoModal"
       >
         {title}
@@ -51,6 +51,16 @@ export default function Breathwork({
             <div className="modal-body">
               {showVideo &&
                 <>
+
+                  <div className='mt-4 mb-4'>
+                    <ul className="list-group">
+                      <li className="list-group-item">Ritmo circular usando naríz para inhalár y boca para exhalár</li>
+                      <li className="list-group-item">Inflo abdomen y pecho al inhalar</li>
+                      <li className="list-group-item">Libero tensión al exhalar</li>
+                      <li className="list-group-item">Por momentos cambio boca nariz y a la inversa, escucha tu cuerpo</li>
+                      <li className="list-group-item">Toma nota de como te sientes antes y después de la práctica</li>
+                    </ul>
+                  </div>
                   <div className='d-flex flex-colum'>
                     <iframe
                       width="100%"
@@ -62,15 +72,6 @@ export default function Breathwork({
                       allowFullScreen>
 
                     </iframe>
-                  </div>
-                  <div className='mt-4'>
-                    <ul className="list-group">
-                      <li className="list-group-item">Ritmo circular usando naríz para inhalár y boca para exhalár</li>
-                      <li className="list-group-item">Inflo abdomen y pecho al inhalar</li>
-                      <li className="list-group-item">Libero tensión al exhalar</li>
-                      <li className="list-group-item">Por momentos cambio boca nariz y a la inversa, escucha tu cuerpo</li>
-                      <li className="list-group-item">Toma nota de como te sientes antes y después de la práctica</li>
-                    </ul>
                   </div>
                 </>
 
@@ -90,7 +91,7 @@ export default function Breathwork({
 
             </div>
             <div className="modal-footer">
-              {!showVideo && <button type="button" className="btn btn-primary" onClick={() => setShowVideo(true)}>Iniciar</button>}
+              {!showVideo && <button type="button" className="btn btn-primary" onClick={() => setShowVideo(true)}>{title}</button>}
               {showVideo && <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Gracias</button>}
             </div>
           </div>

@@ -5,18 +5,23 @@ import {
   signOut,
   signInWithEmailAndPassword,
   signInWithPopup,
-  GoogleAuthProvider
+  GoogleAuthProvider,
+  FacebookAuthProvider
 } from "firebase/auth";
 import useAuth from '../contexts/AuthContext';
 import Breathwork from './modals/Breathwork';
 import MeditarEnHielo from './modals/MeditarEnHielo';
 import Menu from './Menu';
+import useDataContext from '../contexts/DataContext';
 
 
 export default function Navigator() {
 
   const auth = getAuth()
   const { user } = useAuth()
+  const { userData } = useDataContext()
+
+
   // const [user, setUser] = useState()
 
   // onAuthStateChanged(auth, (user) => {
@@ -88,6 +93,33 @@ export default function Navigator() {
 
   }
 
+  const signWithFacebook = () => {
+
+    const provider = new FacebookAuthProvider();
+
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // The signed-in user info.
+        const user = result.user;
+
+        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+        const credential = FacebookAuthProvider.credentialFromResult(result);
+        const accessToken = credential.accessToken;
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = FacebookAuthProvider.credentialFromError(error);
+        // ...
+      });
+  }
+
   const signWithGoogle = () => {
 
     const provider = new GoogleAuthProvider();
@@ -124,12 +156,17 @@ export default function Navigator() {
         <div>
           <p className='fs-3'>Estás conectado como:</p>
           <p className='fw-semibold'>{user.email}</p>
+          {userData && <p>Te haces llamar: {userData.nombre}</p>}
           <p>¿Qué puedes hacer ahora?</p>
-          <div className='d-flex flex-column'>
+
+          <div className='d-flex flex-column mt-4'>
             <Menu />
             <button
               type="button"
-              className="btn btn-light mt-4 w-50 align-self-end"
+              className="btn btn-outline-danger mt-4 align-self-end"
+              style={{
+                marginTop: "15px"
+              }}
               onClick={e => logOut(e)}
             >Cerrar sesión</button>
           </div>
@@ -139,9 +176,20 @@ export default function Navigator() {
         <div>
           <p className='text-center'>Aún no inicias sesión.</p>
           <p className='text-end'>¿Qué deseas?</p>
-          <div className='mb-2'>
-            <button type="button" className="btn btn-light" onClick={signWithGoogle}>Acceder con Google</button>
+          <div
+            className='my-4'
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-around",
+              alignContent: "center",
+              textAlign: "center"
+            }}>
+            <div><button type="button" className="btn btn-light my-2" onClick={signWithGoogle}>Acceder con Google</button></div>
+            <div><button type="button" className="btn btn-light my-2" onClick={signWithFacebook}>Acceder con Facebook</button></div>
+
           </div>
+
           <div className="accordion accordion-flush" id="accordionFlushExample">
             <div className="accordion-item">
               <h2 className="accordion-header">

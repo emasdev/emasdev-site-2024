@@ -10,22 +10,6 @@ import {
   signInWithEmailAndPassword
 } from "firebase/auth";
 
-// export const themes = {
-//   light: {
-//     foreground: "#000000",
-//     background: "#eeeeee"
-//   },
-//   dark: {
-//     foreground: "#ffffff",
-//     background: "#222222"
-//   }
-// };
-
-// const initialState = {
-//   theme: themes.light,
-//   setTheme: () => { }
-// };
-
 const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
