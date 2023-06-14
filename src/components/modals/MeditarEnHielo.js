@@ -57,14 +57,14 @@ export default function MeditarEnHielo({
 
 
   return (
-    <div>
+    <>
       {/* <button type="button" className="btn btn-primary" >
         Launch demo modal
       </button> */}
 
       <button
         type="button"
-        className="btn btn-outline-primary w-100 p-3"
+        className="btn btn-outline-primary p-3"
         data-bs-toggle="modal" data-bs-target="#meditarEnHieloModal"
       >
         {title}
@@ -160,6 +160,6 @@ export default function MeditarEnHielo({
           </div>
         </div>
       </div>
-    </div >
+    </ >
   )
 }

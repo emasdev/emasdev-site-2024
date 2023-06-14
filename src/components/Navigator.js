@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { AiFillFacebook, AiFillGoogleSquare } from "react-icons/ai";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -66,10 +67,7 @@ export default function Navigator() {
     // debugger
   }
 
-  const logOut = (event) => {
-    event.preventDefault()
-    signOut(auth)
-  }
+
 
   const logIn = (event) => {
     event.preventDefault()
@@ -150,27 +148,20 @@ export default function Navigator() {
       backgroundColor: "#f1f1f1",
       color: "#444444",
       borderRadius: "15px",
-      padding: "30px"
+      paddingTop: "1em"
     }}>
       {user &&
-        <div>
-          <p className='fs-3'>Estás conectado como:</p>
-          <p className='fw-semibold'>{user.email}</p>
-          {userData && <p>Te haces llamar: {userData.nombre}</p>}
-          <p>¿Qué puedes hacer ahora?</p>
+        <>
+          <div>
+            <p className='fw-semibold'>{user.email}</p>
+            {userData && <p>Te haces llamar: {userData.nombre}</p>}
+            <p>¿Qué puedes hacer ahora?</p>
 
-          <div className='d-flex flex-column mt-4'>
-            <Menu />
-            <button
-              type="button"
-              className="btn btn-outline-danger mt-4 align-self-end"
-              style={{
-                marginTop: "15px"
-              }}
-              onClick={e => logOut(e)}
-            >Cerrar sesión</button>
+
+
           </div>
-        </div>
+          <Menu />
+        </>
       }
       {!user &&
         <div>
@@ -183,10 +174,37 @@ export default function Navigator() {
               flexDirection: "column",
               justifyContent: "space-around",
               alignContent: "center",
-              textAlign: "center"
+              textAlign: "center",
             }}>
-            <div><button type="button" className="btn btn-light my-2" onClick={signWithGoogle}>Acceder con Google</button></div>
-            <div><button type="button" className="btn btn-light my-2" onClick={signWithFacebook}>Acceder con Facebook</button></div>
+            <div>
+              <button type="button" className="btn btn-light my-2" onClick={signWithGoogle}>
+                <span style={{ color: "#444444" }}>Acceder con Google</span>
+                <AiFillGoogleSquare
+                  style={{
+                    marginTop: "2px",
+                    marginBottom: "2px",
+                    paddingBottom: "2px",
+                    marginLeft: "10px",
+                    color: "#444444",
+                  }}
+                  size={"1.7em"}
+                />
+              </button>
+            </div>
+            <div>
+              <button type="button" className="btn btn-light my-2" onClick={signWithFacebook}>
+                <span style={{ color: "#444444" }}>Acceder con Facebook</span>
+                <AiFillFacebook
+                  style={{
+                    marginTop: "2px",
+                    marginBottom: "4px",
+                    marginLeft: "10px",
+                    color: "#444444"
+                  }}
+                  size={"1.5em"}
+                />
+              </button>
+            </div>
 
           </div>
 

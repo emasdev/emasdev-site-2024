@@ -1,0 +1,25 @@
+[debug] [2023-06-14T05:00:51.173Z] ----------------------------------------------------------------------
+[debug] [2023-06-14T05:00:51.174Z] Command:       /opt/homebrew/Cellar/node/19.5.0/bin/node /opt/homebrew/bin/firebase deploy
+[debug] [2023-06-14T05:00:51.175Z] CLI Version:   12.1.0
+[debug] [2023-06-14T05:00:51.175Z] Platform:      darwin
+[debug] [2023-06-14T05:00:51.175Z] Node Version:  v19.5.0
+[debug] [2023-06-14T05:00:51.175Z] Time:          Wed Jun 14 2023 00:00:51 GMT-0500 (Central Daylight Time)
+[debug] [2023-06-14T05:00:51.175Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-06-14T05:00:51.176Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2023-06-14T05:00:51.217Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-06-14T05:00:51.217Z] > authorizing via signed-in user (emas.dev@gmail.com)
+[debug] [2023-06-14T05:00:51.217Z] [iam] checking project emas-dev-s for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-06-14T05:00:51.217Z] > refreshing access token with scopes: []
+[debug] [2023-06-14T05:00:51.218Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-06-14T05:00:51.218Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-06-14T05:00:51.387Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2023-06-14T05:00:51.387Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2023-06-14T05:00:51.406Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-06-14T05:00:51.406Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-06-14T05:00:51.420Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/emas-dev-s:testIamPermissions [none]
+[debug] [2023-06-14T05:00:51.420Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/emas-dev-s:testIamPermissions x-goog-quota-user=projects/emas-dev-s
+[debug] [2023-06-14T05:00:51.420Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/emas-dev-s:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-06-14T05:00:51.764Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/emas-dev-s:testIamPermissions 200
+[debug] [2023-06-14T05:00:51.764Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/emas-dev-s:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-06-14T05:00:51.765Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/emas-dev-s [none]

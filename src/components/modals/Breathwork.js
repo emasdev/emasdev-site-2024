@@ -27,14 +27,14 @@ export default function Breathwork({
   }
 
   return (
-    <div>
+    <>
       {/* <button type="button" className="btn btn-primary" >
         Launch demo modal
       </button> */}
 
       <button
         type="button"
-        className="btn btn-outline-primary w-100 p-3"
+        className="btn btn-outline-primary p-3"
         data-bs-toggle="modal" data-bs-target="#tummoModal"
       >
         {title}
@@ -99,6 +99,6 @@ export default function Breathwork({
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
